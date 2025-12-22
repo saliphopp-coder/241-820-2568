@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container .item {
+            background-color: blueviolet;
+        }   
+        .main-container .item {
+            background-color: aqua;
+        }
+        .button {
+            background-color: brown;
+            border: 0;
+            padding: 10px;
+        }
+        .button.active{
+            background-color: aquamarine;
+        }
+        .button.danger{
+            background-color: blueviolet;
+        }
+        .item1 + .item2 {
+            background-color: darkgreen;
+        }
+        input[type="text"] {
+            border: 2px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <!--1.item ลูกค้า container -->
+    <div class="container">
+        container
+        </div class="item">
+             item 1
+        </div>
+    </div>
+
+    <!--2. item เป็นลูกของ container ชิ้นเดียว-->
+        <div class="container">
+           container
+           <div class="item">
+                Item 
+                <div class="item">
+                    Item 1
+                </div>
+                <div class="item">
+                    Item 2
+                </div>
+                <div class="item">
+                    Item 3
+                </div>
+           </div>     
+        </div>
+        <!--3.class-->
+        <button class="button">Click me</button>
+        <button class="button active">Click me</button>
+
+        <!--4.adjust-->
+        <div class="item1">Item 1</div>
+        <div class="item1">Item 2</div>
+
+        <!--5. attribute selector-->
+        <input type="text" name="firstname">
+        
+
+    
+        
+
+
+    
+</body>
+</html>
