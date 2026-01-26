@@ -1,0 +1,41 @@
+//show all conitaner (defult show just running)
+docker ps --all
+
+//show just running conitaner
+docker ps
+
+docker run hello-world
+
+//stop conitaner
+docker stop <conitaner_id>
+
+//pull an image from a registry
+docker pull <image_name>
+
+//create a conitaner from an image
+docker create <image_name>
+
+//start a conitaner
+docker start <conitaner_id>
+
+//remove a conitaner
+docker rm <conitaner_id>
+
+//remove all conitaner
+docker system prune
+
+//nginx server
+docker run nginx
+
+// sh conitaner
+docker run -it <image_name or conitaner_id> sh
+
+//cat file inside conitaner
+cat filename.txt
+
+docker run -p 80:80 nginx
+forgound mode
+docker run -p 9000:80 nginx
+
+//detached mode
+docker run -d -p 9100:80 nginx
