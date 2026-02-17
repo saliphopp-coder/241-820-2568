@@ -1,70 +1,73 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const e = require('express');
+//อังคารที่ 17 กุมภาพันธ์ 2569//
+const express = require ('express');
+const bobyParser = require('body-parser');
 const app = express();
+
 const port = 8000;
-
-app.use(bodyParser.json());
-
-let users = []
+app.use(bobyParser.json()); 
+let users = []; //ประกาศตัวเเปร
 let counter = 1;
-
-//path = /users
-app.get('/users', (req, res) => {
-  res.json(users);
+//path =GET /users
+//app.get('/',(req,res)=> { //ตำเเหน่ง path//
+    app.get('/users',(req,res)=> {
+        res.json(users);
+    });
+  /*let user = {
+        name: "John Doe",
+        age: 30,
+        email: "john.doe@example.com"
+*/     
+//path= Post /user
+app.post('/user',(req,res)=> {
+let user = req.body;
+user.id = counter;
+counter += 1;
+users.push(user);
+res.json({
+    message: "User added successfully",
+    user: user });
 });
-
-//path = Post /user
-app.post('/user', (req, res) => {
-  let user = req.body;
-  user.id = counter++;
-  users.push(user);
-  res.json({ message: 'User added successfully', user: user });
-})
-
-//path = put /user/:id
-app.patch('/user/:id', (req, res) => {
+//path = PUT/user/:id
+app.patch("/user/:id",(req,res)=> {
   let id = req.params.id;
-  //หา users จาก id
-  let selectedindex = users.findIndex(user => {
-    if (user.id == id) {
-      return true;
-    } else {
-      return false;
+  let updateUser = req.body;
+  //user จาก id ที่ส่งมา 
+  let selectedIndex = users.findIndex(user => user.id == id);
+});
+  //อัพเดตข้อมูลของ user
+  if (updateUser.name){
+    users[selectedIndex].name = updateUser.name;
+  }
+  if (updateUser.age){
+    users[selectedIndex].age = updateUser.age;
+  }
+  //เอาข้อมูลที่ update ส่ง response กลับไป
+ res.json({
+    message: "User updated successfully",
+    data:{
+      user: users[selectedIndex],
+      indexUpdated: selectedIndex
     }
-  })
-  //update user นั้น
- 
+  });
 
-;
-  //ส่ง response กลับไปว่า update users ที่เลือกสำเร็จ
-  res.json({
-    message: 'User updated successfully',
-    data : {
-      user: updateUser,
-      indexUpdated: selectedindex
-    }
-  })
-
-  
-})
+  //path = Delete /user/:id
 app.delete('/user/:id', (req, res) => {
   let id = req.params.id;
+  //user จาก id ที่ส่งมา
   let selectedindex = users.findIndex(user => user.id == id);
+   //ลบ user จาก Array users
   if (selectedindex !== -1) {
     users.splice(selectedindex, 1);
+    
     res.json({ 
       message: 'User deleted successfully',
-      data: {
+  
         indexDeleted: selectedindex
+    });
       }
-    })
-  } else {
-    res.status(404).json({ 
-      message: 'User not found'
-     })
-  }
 })
-app.listen(port, () => {
+  
+app.listen(port,()=> {
   console.log(`Server is running on port ${port}`);
+
 });
