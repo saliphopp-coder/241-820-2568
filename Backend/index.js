@@ -1,8 +1,11 @@
 
 // ทำการimport 
-const http = require('http');
-const host = 'localhost';
-const port = 8000;  
+const express = require('express');
+const bodyParser = require('body-parser');
+const mysql = require('mysql2/promise');
+const app = express();
+const http = require('express');
+const port = 8000; 
 
 app.use(bodyParser.json());
 
