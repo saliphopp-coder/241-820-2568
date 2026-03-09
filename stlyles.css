@@ -1,0 +1,118 @@
+/* ใช้ Font ภาษาไทยที่อ่านง่าย */
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500&display=swap');
+
+body {
+    font-family: 'Prompt', sans-serif;
+    background-color: #f4f7f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #d61212;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+}
+
+.header {
+    font-size: 24px;
+    font-weight: 500;
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #781691;
+    padding-bottom: 15px;
+}
+
+.form-input {
+    margin-bottom: 18px;
+}
+
+.header-form {
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #555;
+}
+
+/* จัดสไตล์ Input Text/Number */
+.form {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box; /* สำคัญมากเพื่อให้ padding ไม่ทำให้ width เกิน */
+    transition: border-color 0.3s;
+}
+
+.form:focus {
+    outline: none;
+    border-color: #4a90e2;
+}
+
+/* จัดสไตล์ Radio และ Checkbox */
+.gender .flex {
+    display: flex;
+    gap: 15px;
+}
+
+input[type="radio"], 
+input[type="checkbox"] {
+    cursor: pointer;
+}
+
+/* จัดสไตล์ Textarea */
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    resize: vertical;
+    height: 80px;
+    box-sizing: border-box;
+}
+
+/* จัดสไตล์ปุ่ม */
+.center {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.message{
+    background-color: #4a90e2;
+    padding: auto;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+.message.success{
+    background-color: aqua;
+    color: #ddd;
+}
+.message.danger {
+    background-color: brown;
+    color: chocolate;
+}
+.button {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-family: 'Prompt', sans-serif;
+}
+
+.button:hover {
+    background-color: #357abd;
+}
+
+.button:active {
+    transform: scale(0.98);
+}
